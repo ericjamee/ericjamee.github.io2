@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transaction</title>
+    <link rel="stylesheet" href="vibrant-retro.css">
+</head>
+<body>
+    <header>
+        <h1>Transaction</h1>
+    </header>
+
+    <section id="transaction-entry">
+        <div class="input-group">
+            <label for="amount">Amount</label>
+            <input type="text" id="amount" placeholder="Enter amount">
+        </div>
+
+        <div class="input-group">
+            <label for="category">Category</label>
+            <select id="category">
+                <option>MTC Employment</option>
+                <option>Gifts Received</option>
+                <option>Other Cashflow</option>
+                <option>Tithing</option>
+                <option>Rent</option>
+                <option>Utilities</option>
+                <option>Food</option>
+                <option>Tuition</option>
+                <option>Books</option>
+                <option>Gifts</option>
+                <option>Transportation</option>
+                <option>Entrepreneurship</option>
+                <option>Dates</option>
+                <option>Miscellaneous Needs</option>
+                <option>Miscellaneous Wants</option>
+                <option>Wedding</option>
+                <option>Other</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="month">Month</label>
+            <select id="month">
+                <option>January</option>
+                <option>February</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+                <option>July</option>
+                <option>August</option>
+                <option>September</option>
+                <option>October</option>
+                <option>November</option>
+                <option>December</option>
+            </select>
+        </div>
+
+        <button class="submit-btn" onclick="submitTransaction()">Submit</button>
+    </section>
+
+    <div class="back-home">
+        <a href="index.html">Back to Home</a>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxAkKYqDOiFt9sICkdNkbvP9QHegiGFI0ho9vjKFtAqjQrVqmrfcePCaiVjvPRtNr-bvQ/exec';
+
+        async function submitTransaction() {
+            const amount = document.getElementById('amount').value;
+            const category = document.getElementById('category').value;
+            const month = document.getElementById('month').value;
+            const timestamp = new Date().toLocaleString(); // Capture the current date and time
+
+            // Validate amount input
+            if (!amount || isNaN(amount)) {
+                alert('Please enter a valid amount.');
+                return;
+            }
+
+            try {
+                const res = await fetch(scriptURL, {
+                    method: 'POST',
+                    body: JSON.stringify({ action: 'logTransactionData', amount, category, month, timestamp }),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+
+                const result = await res.json();
+                if (result.status === 'success') {
+                    alert(`Transaction recorded: ${amount} - ${category} for ${month}`);
+                } else {
+                    alert('Error: Transaction could not be recorded. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to submit data. Check your internet connection or permissions on the Google Apps Script.');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Purpose Tracker</title>
+    <link rel="stylesheet" href="vibrant-retro.css">
+</head>
+<body>
+    <header>
+        <h1>Read your purpose today?</h1>
+    </header>
+
+    <section id="purpose">
+        <button class="yes-btn" onclick="recordResponse('Yes')">Yes</button>
+        <button class="no-btn" onclick="recordResponse('No')">No</button>
+    </section>
+    <div class="back-home">
+        <a href="index.html">Back to Home</a>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxAkKYqDOiFt9sICkdNkbvP9QHegiGFI0ho9vjKFtAqjQrVqmrfcePCaiVjvPRtNr-bvQ/exec';
+
+        async function recordResponse(response) {
+            const timestamp = new Date().toLocaleString(); // Capture the current date and time
+            
+            try {
+                const res = await fetch(scriptURL, {
+                    method: 'POST',
+                    body: JSON.stringify({ action: 'logPurposeData', response, timestamp }),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                
+                const result = await res.json();
+                if (result.status === 'success') {
+                    alert(`Response recorded: ${response}`);
+                } else {
+                    alert('Error: Response could not be recorded. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to submit data. Check your internet connection or permissions on the Google Apps Script.');
+            }
+        }
+    </script>
+</body>
+</html>

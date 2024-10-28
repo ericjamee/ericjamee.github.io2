@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sleep Tracker</title>
+    <link rel="stylesheet" href="vibrant-retro.css">
+</head>
+<body>
+    <header>
+        <h1>Sleep Tracker</h1>
+    </header>
+
+    <section id="tracker">
+        <div class="entry">
+            <label for="sleepStartTime">Sleep Start Time:</label>
+            <input type="datetime-local" id="sleepStartTime">
+            <button class="submit-btn" onclick="submitTime('sleepStartTime', 'Sleep')">Submit Sleep Start</button>
+        </div>
+
+        <div class="entry">
+            <label for="wakeUpTime">Wake Up Time:</label>
+            <input type="datetime-local" id="wakeUpTime">
+            <button class="submit-btn" onclick="submitTime('wakeUpTime', 'WakeUp')">Submit Wake Up</button>
+        </div>
+    </section>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxAkKYqDOiFt9sICkdNkbvP9QHegiGFI0ho9vjKFtAqjQrVqmrfcePCaiVjvPRtNr-bvQ/exec';
+
+        // Automatically set the current date and time in the datetime-local fields
+        function setCurrentDateTime() {
+            const now = new Date();
+
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+
+            const formattedDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+            
+            document.getElementById('sleepStartTime').value = formattedDateTime;
+            document.getElementById('wakeUpTime').value = formattedDateTime;
+        }
+
+
+        // Function to submit either sleep start time or wake up time to the specified sheet
+        async function submitTime(inputId, sheetName) {
+            const timeValue = document.getElementById(inputId).value;
+            const data = {
+                action: 'logTimeData',
+                timeValue: timeValue,
+                sheetName: sheetName
+            };
+
+            try {
+                const response = await fetch(scriptURL, {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                const result = await response.json();
+                if (result.status === 'success') {
+                    alert(`${inputId === 'sleepStartTime' ? 'Sleep Start' : 'Wake Up'} recorded as: ${timeValue}`);
+                } else {
+                    alert('There was an error recording your data. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to submit data. Check your internet connection or permissions on the Google Apps Script.');
+            }
+        }
+
+        // Initialize the date and time when the page loads
+        window.onload = setCurrentDateTime;
+    </script>
+
+    <div class="back-home">
+        <a href="index.html">Back to Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,634 @@
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #fafafa;
+    color: #333;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+#home {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+button {
+    border: none;
+    padding: 15px 30px;
+    margin: 10px 0;
+    font-size: 18px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 350px;
+    color: #fff;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+/* Color styling for each button */
+button#WakeUp { background-color: #DA3931; }      /* Vermilion */
+button#Sleep { background-color: #E56E2E; }       /* Spanish Orange */
+button#Purpose { background-color: #EAA72F; }     /* Honeygold Yellow */
+button#Scriptures { background-color: #259AA1; }  /* Dark Cyan */
+button#Temple { background-color: #146982; }      /* Cerulean */
+button#Transaction { background-color: #DA3931; } /* Vermilion */
+button#Food { background-color: #259AA1; }        /* Dark Cyan */
+button#Exercise { background-color: #E56E2E; }    /* Spanish Orange */
+button#Journal { background-color: #EAA72F; }     /* Honeygold Yellow */
+
+
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #fafafa;
+    color: #333;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+#tracker {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.entry {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+label {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+input[type="datetime-local"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 90%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.submit-btn {
+    background-color: #259AA1; /* Dark cyan */
+    width: 90%;
+    max-width: 300px;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    background-color: #207b86; /* Slightly darker shade on hover */
+}
+
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #fafafa;
+    color: #333;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+#purpose {
+    display: flex;
+    gap: 20px;
+}
+
+button {
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 12px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.yes-btn {
+    background-color: #259AA1; /* Dark cyan */
+}
+
+.yes-btn:hover {
+    background-color: #207b86; /* Slightly darker shade on hover */
+    transform: translateY(-3px);
+}
+
+.no-btn {
+    background-color: #DA3931; /* Vermilion */
+}
+
+.no-btn:hover {
+    background-color: #b22c25; /* Slightly darker shade on hover */
+    transform: translateY(-3px);
+}
+
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #fafafa;
+    color: #333;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+#study-section {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+select {
+    padding: 10px;
+    font-size: 16px;
+    width: 90%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    appearance: none;
+}
+
+.submit-btn {
+    background-color: #259AA1; /* Dark cyan */
+    width: 90%;
+    max-width: 300px;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    background-color: #207b86; /* Slightly darker shade on hover */
+}
+
+
+/*temple css*/
+
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #fafafa;
+    color: #333;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+#temple-section {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+input[type="date"],
+select {
+    padding: 10px;
+    font-size: 16px;
+    width: 90%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    appearance: none;
+}
+
+.submit-btn {
+    background-color: #259AA1; /* Dark cyan */
+    width: 90%;
+    max-width: 300px;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    background-color: #207b86; /* Slightly darker shade on hover */
+}
+
+/*Transaction button*/
+
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #fafafa;
+    color: #333;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+#transaction-entry {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+input[type="text"], select {
+    padding: 10px;
+    font-size: 16px;
+    width: 90%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    appearance: none;
+}
+
+.submit-btn {
+    background-color: #259AA1; /* Dark cyan */
+    width: 90%;
+    max-width: 300px;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    background-color: #207b86; /* Slightly darker shade on hover */
+}
+
+.back-home {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.back-home a {
+    text-decoration: none;
+    color: #259AA1; /* Dark cyan color */
+    font-size: 14px;
+    padding: 5px 10px;
+    border: 1px solid #259AA1;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-home a:hover {
+    background-color: #259AA1;
+    color: #fff;
+}
+
+/*Exercise*/
+
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #fafafa;
+    color: #333;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+#exercise {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+button.exercise-btn {
+    background-color: #EAA72F; /* Default color */
+    color: #fff;
+    padding: 12px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.exercise-btn.selected {
+    background-color: #259AA1; /* Active color */
+}
+
+#exercise-type {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+input[type="number"],
+select {
+    padding: 10px;
+    font-size: 16px;
+    width: 90%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    appearance: none;
+}
+
+.submit-btn {
+    background-color: #259AA1; /* Dark cyan */
+    width: 90%;
+    max-width: 300px;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    background-color: #207b86; /* Slightly darker shade on hover */
+}
+
+.back-home {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.back-home a {
+    text-decoration: none;
+    color: #259AA1; /* Dark cyan color */
+    font-size: 14px;
+    padding: 5px 10px;
+    border: 1px solid #259AA1;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-home a:hover {
+    background-color: #259AA1;
+    color: #fff;
+}
+
+/*Journal*/
+
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #fafafa;
+    color: #333;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+#journal-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+#journal-entry {
+    width: 100%;
+    height: 60vh;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: none;
+    box-sizing: border-box;
+}
+
+.submit-btn {
+    background-color: #259AA1; /* Dark cyan */
+    width: 100%;
+    max-width: 300px;
+    padding: 12px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    background-color: #207b86; /* Slightly darker shade on hover */
+}
+
+.back-home {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.back-home a {
+    text-decoration: none;
+    color: #259AA1; /* Dark cyan color */
+    font-size: 14px;
+    padding: 5px 10px;
+    border: 1px solid #259AA1;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-home a:hover {
+    background-color: #259AA1;
+    color: #fff;
+}

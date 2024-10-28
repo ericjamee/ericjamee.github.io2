@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scripture Study Tracker</title>
+    <link rel="stylesheet" href="vibrant-retro.css">
+</head>
+<body>
+    <header>
+        <h1>Scripture Study</h1>
+    </header>
+
+    <section id="study-section">
+        <div class="input-group">
+            <label for="studyDuration">How long did you study?</label>
+            <select id="studyDuration" name="studyDuration">
+                <option value="15">15 minutes</option>
+                <option value="30">30 minutes</option>
+                <option value="45">45 minutes</option>
+                <option value="60">60 minutes</option>
+            </select>
+        </div>
+        <button class="submit-btn" onclick="submitStudyTime()">Submit</button>
+    </section>
+    <div class="back-home">
+        <a href="index.html">Back to Home</a>
+    </div>
+    
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxAkKYqDOiFt9sICkdNkbvP9QHegiGFI0ho9vjKFtAqjQrVqmrfcePCaiVjvPRtNr-bvQ/exec';
+
+        async function submitStudyTime() {
+            const duration = document.getElementById('studyDuration').value;
+            const timestamp = new Date().toLocaleString(); // Capture the current date and time
+            
+            try {
+                const res = await fetch(scriptURL, {
+                    method: 'POST',
+                    body: JSON.stringify({ action: 'logScriptureStudyData', studyDuration: duration, timestamp }),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                
+                const result = await res.json();
+                if (result.status === 'success') {
+                    alert(`Study time recorded: ${duration} minutes`);
+                } else {
+                    alert('Error: Study time could not be recorded. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to submit data. Check your internet connection or permissions on the Google Apps Script.');
+            }
+        }
+    </script>
+</body>
+</html>

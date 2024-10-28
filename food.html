@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Tracker</title>
+    <link rel="stylesheet" href="vibrant-retro.css">
+</head>
+<body>
+    <header>
+        <h1>Food Tracker</h1>
+    </header>
+
+    <section id="food-entry">
+        <div class="input-group">
+            <label for="current-date">Date:</label>
+            <input type="text" id="current-date" readonly>
+        </div>
+        <div class="input-group">
+            <label for="meal-select">Meal:</label>
+            <select id="meal-select">
+                <option>Breakfast</option>
+                <option>Lunch</option>
+                <option>Dinner</option>
+                <option>Snack</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="sugar-level">Sugar Level:</label>
+            <input type="range" id="sugar-level" min="1" max="10" value="5">
+        </div>
+        <div class="input-group">
+            <label for="healthy-level">Healthiness Level:</label>
+            <input type="range" id="healthy-level" min="1" max="10" value="5">
+        </div>
+        <div class="input-group">
+            <label for="processed-level">Processed Level:</label>
+            <input type="range" id="processed-level" min="1" max="10" value="5">
+        </div>
+        <button class="submit-btn" onclick="submitFood()">Submit</button>
+    </section>
+    <div class="back-home">
+        <a href="index.html">Back to Home</a>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxAkKYqDOiFt9sICkdNkbvP9QHegiGFI0ho9vjKFtAqjQrVqmrfcePCaiVjvPRtNr-bvQ/exec';
+
+        // Set today's date in the current-date field
+        document.addEventListener("DOMContentLoaded", () => {
+            const today = new Date();
+            const formattedDate = today.toLocaleDateString();
+            document.getElementById("current-date").value = formattedDate;
+        });
+
+        async function submitFood() {
+            const date = document.getElementById('current-date').value;
+            const meal = document.getElementById('meal-select').value;
+            const sugarLevel = document.getElementById('sugar-level').value;
+            const healthiness = document.getElementById('healthy-level').value;
+            const processed = document.getElementById('processed-level').value;
+            const timestamp = new Date().toLocaleString(); // Capture the current date and time
+            
+            try {
+                const res = await fetch(scriptURL, {
+                    method: 'POST',
+                    body: JSON.stringify({ action: 'logFoodData', date, meal, sugarLevel, healthiness, processed, timestamp }),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+
+                const result = await res.json();
+                if (result.status === 'success') {
+                    alert(`Food entry recorded for ${meal} on ${date}`);
+                } else {
+                    alert('Error: Food entry could not be recorded. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to submit data. Check your internet connection or permissions on the Google Apps Script.');
+            }
+        }
+    </script>
+</body>
+</html>
